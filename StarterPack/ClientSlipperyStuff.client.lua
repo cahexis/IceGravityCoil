@@ -10,7 +10,7 @@ local oldfricw = 1
 local newphysics = PhysicalProperties.new(0.7,newfric,0.5,newfricw,1)
 local oldphysics = PhysicalProperties.new(0.7,oldfric,0.5,oldfricw,1)
 
-tool.Equipped:Connect(function(plr)
+tool.Equipped:Connect(function(plr) -- changes players physic properties when the tool is equipped
 	local char = tool.Parent
 	print("Coil used!")
 	coilsound:Play()
@@ -21,7 +21,7 @@ tool.Equipped:Connect(function(plr)
 	end
 end)
 
-tool.Unequipped:Connect(function(plr)
+tool.Unequipped:Connect(function(plr) -- resets the physic properties when the tool is unequipped
 	local char = tool.Parent
 	for i,v in pairs(workspace:GetDescendants()) do
 		if v:IsA("Part") and v.Parent ~= char and v ~= tool.Handle then
